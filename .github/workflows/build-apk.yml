@@ -2,7 +2,11 @@ name: Build APK
 
 on:
   push:
+    branches: [main]
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -17,7 +21,6 @@ jobs:
       # the Android Gradle Plugin downloads platform 34 / build-tools automatically if missing.
       - name: Build debug APK
         run: |
-          echo "ANDROID_HOME=$ANDROID_HOME"
           chmod +x ./gradlew
           ./gradlew assembleDebug --no-daemon --stacktrace
       - name: Rename APK
@@ -26,3 +29,22 @@ jobs:
         with:
           name: A330-HamHang-3D-apk
           path: A330-HamHang-3D.apk
+      - name: Publish APK to the 'apk' branch
+        run: |
+          mkdir -p /tmp/out && cp A330-HamHang-3D.apk /tmp/out/
+          cd /tmp/out
+          git init -q -b apk
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add A330-HamHang-3D.apk
+          git commit -q -m "APK build ${GITHUB_SHA::7} (run ${GITHUB_RUN_NUMBER})"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" apk
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="v1.0.${GITHUB_RUN_NUMBER}"
+          gh release create "$TAG" A330-HamHang-3D.apk \
+            --title "A330 Hầm hàng 3D – $TAG" \
+            --notes "Bản APK (debug, tự ký) build từ commit ${GITHUB_SHA::7}. Cài trên Android 7.0+; bật cho phép cài ứng dụng từ nguồn không xác định. Đăng nhập: Test/123 – Admin/VIAA." \
+            --target "$GITHUB_SHA"
