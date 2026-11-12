@@ -1,0 +1,31 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'vn.vjaa.a330lowerdeck'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'vn.vjaa.a330lowerdeck'
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            // Bản release cần chữ ký riêng – xem HUONG_DAN_BUILD_APK.txt. Bản debug tự ký, cài trực tiếp được.
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // index.html đã nén sẵn; không nén lại để WebView đọc nhanh
+    androidResources { noCompress 'html' }
+}

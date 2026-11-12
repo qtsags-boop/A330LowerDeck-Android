@@ -1,0 +1,30 @@
+A330 HẦM HÀNG 3D – DỰ ÁN ANDROID (APK)
+======================================
+Ứng dụng bọc bản bài giảng offline (app/src/main/assets/index.html) trong WebView:
+chạy hoàn toàn không cần Internet, toàn màn hình, xoay ngang, giữ màn hình sáng.
+Đăng nhập: Test / 123 – Admin / VIAA.  Nút ⛶ (góc màn hình) = ẩn/hiện bảng thông tin.
+Nút Back: đóng menu khóa → thoát phóng to → thoát màn hình sạch → thoát ứng dụng.
+Yêu cầu máy Android: Android 7.0 (API 24) trở lên, có WebView/Chrome cập nhật (WebGL).
+Khuyến nghị máy tính bảng 10" hoặc điện thoại xoay ngang.
+
+CÁCH 1 – ANDROID STUDIO (trên máy tính của bạn)
+1. Cài Android Studio (bản mới, có sẵn JDK 17 và Android SDK).
+2. File → Open → chọn thư mục A330LowerDeck-Android. Chờ Gradle Sync (lần đầu cần Internet để tải Gradle 8.7 và Android Gradle Plugin 8.5.2).
+3. Build → Build App Bundle(s) / APK(s) → Build APK(s).
+4. File APK: app/build/outputs/apk/debug/app-debug.apk  → chép sang điện thoại và cài
+   (bật "Cho phép cài ứng dụng từ nguồn không xác định").
+   Hoặc cắm điện thoại (bật USB debugging) rồi bấm Run ▶ để cài thẳng.
+   Dòng lệnh tương đương:  gradlew assembleDebug   (Windows)   ./gradlew assembleDebug   (macOS/Linux)
+
+CÁCH 2 – GITHUB ACTIONS (không cần cài gì trên máy)
+1. Tạo repository mới trên GitHub, tải toàn bộ thư mục này lên (giữ cả thư mục ẩn .github).
+2. Vào tab Actions → workflow "Build APK" tự chạy (hoặc bấm Run workflow).
+3. Khi xong (≈ 3–5 phút): mở lần chạy → mục Artifacts → tải "A330-HamHang-3D-apk" (file zip chứa app-debug.apk).
+
+CẬP NHẬT NỘI DUNG BÀI GIẢNG
+- Thay file app/src/main/assets/index.html bằng bản A330_LowerDeck_3D_offline.html mới (đổi tên thành index.html),
+  tăng versionCode / versionName trong app/build.gradle, rồi build lại.
+
+PHÁT HÀNH CHÍNH THỨC (tuỳ chọn)
+- APK debug tự ký, phù hợp cài nội bộ cho lớp học. Để phát hành rộng hoặc đưa lên Google Play, tạo keystore
+  (Build → Generate Signed Bundle / APK…) và build bản release (.aab cho Google Play).
