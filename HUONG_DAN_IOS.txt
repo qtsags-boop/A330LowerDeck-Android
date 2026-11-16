@@ -1,0 +1,19 @@
+A330 HẦM HÀNG 3D – DÙNG TRÊN iPHONE / iPAD (ỨNG DỤNG WEB, CHẠY OFFLINE)
+=====================================================================
+Link: https://qtsags-boop.github.io/A330LowerDeck-Android/
+
+CÀI LÊN MÀN HÌNH CHÍNH (mỗi máy làm 1 lần, cần mạng lần đầu)
+1. Mở link trên bằng Safari (bắt buộc Safari, không dùng Chrome/Zalo/Messenger).
+2. Chờ bài giảng tải xong (thấy màn hình đăng nhập).
+3. Bấm nút Chia sẻ (ô vuông có mũi tên lên) → "Thêm vào MH chính" (Add to Home Screen) → Thêm.
+4. Mở ứng dụng "A330 Hầm hàng" từ màn hình chính: chạy toàn màn hình, không cần mạng.
+Đăng nhập: Test / 123 – Admin / VIAA. Nút ⛶ góc màn hình = ẩn/hiện bảng thông tin.
+Nên dùng iPad hoặc iPhone xoay ngang.
+
+CẬP NHẬT BÀI GIẢNG
+- Thay app/src/main/assets/index.html và đẩy lên nhánh main: GitHub tự cập nhật trang (≈1 phút).
+- Máy học viên nhận bản mới ở lần mở ứng dụng tiếp theo khi có mạng; khi offline vẫn dùng bản đã lưu.
+
+LƯU Ý
+- Repository đang công khai: ai có link đều mở được trang. Đăng nhập chỉ là lớp quản lý phía trình duyệt.
+- Nếu lâu không mở (vài tuần), iOS có thể xoá bộ nhớ đệm: mở lại một lần khi có mạng.
