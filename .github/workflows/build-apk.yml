@@ -24,8 +24,9 @@ jobs:
           chmod +x ./gradlew
           ./gradlew assembleDebug --no-daemon --stacktrace
       - name: Rename APK
-        run: cp app/build/outputs/apk/debug/app-debug.apk A330-HamHang-3D.apk
-          cp A330-HamHang-3D.apk "A330-LowDeck-Loading-procedure-Demo-V1.0-Final.apk"
+        run: |
+          cp app/build/outputs/apk/debug/app-debug.apk A330-HamHang-3D.apk
+          cp A330-HamHang-3D.apk A330-LowDeck-Loading-procedure-Demo-V1.0-Final.apk
       - uses: actions/upload-artifact@v4
         with:
           name: A330-HamHang-3D-apk
