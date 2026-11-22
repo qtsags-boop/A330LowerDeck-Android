@@ -17,3 +17,7 @@ CẬP NHẬT BÀI GIẢNG
 LƯU Ý
 - Repository đang công khai: ai có link đều mở được trang. Đăng nhập chỉ là lớp quản lý phía trình duyệt.
 - Nếu lâu không mở (vài tuần), iOS có thể xoá bộ nhớ đệm: mở lại một lần khi có mạng.
+
+PHIÊN BẢN: A330 LowDeck Loading procedure Demo V1.0 Final
+- Âm thanh khóa thật (1/2/3 nhịp theo số dãy khóa), quy trình 2 hầm chống tipping, góc nhìn 2.5D.
+- Trên iPhone/iPad: chạm màn hình một lần (ví dụ khi đăng nhập) để bật âm thanh; tắt chế độ im lặng của máy nếu không nghe tiếng.

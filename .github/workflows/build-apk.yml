@@ -25,18 +25,21 @@ jobs:
           ./gradlew assembleDebug --no-daemon --stacktrace
       - name: Rename APK
         run: cp app/build/outputs/apk/debug/app-debug.apk A330-HamHang-3D.apk
+          cp A330-HamHang-3D.apk "A330-LowDeck-Loading-procedure-Demo-V1.0-Final.apk"
       - uses: actions/upload-artifact@v4
         with:
           name: A330-HamHang-3D-apk
-          path: A330-HamHang-3D.apk
+          path: |
+            A330-HamHang-3D.apk
+            A330-LowDeck-Loading-procedure-Demo-V1.0-Final.apk
       - name: Publish APK to the 'apk' branch
         run: |
-          mkdir -p /tmp/out && cp A330-HamHang-3D.apk /tmp/out/
+          mkdir -p /tmp/out && cp A330-HamHang-3D.apk A330-LowDeck-Loading-procedure-Demo-V1.0-Final.apk /tmp/out/
           cd /tmp/out
           git init -q -b apk
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add A330-HamHang-3D.apk
+          git add *.apk
           git commit -q -m "APK build ${GITHUB_SHA::7} (run ${GITHUB_RUN_NUMBER})"
           git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" apk
       - name: Create GitHub Release
@@ -44,7 +47,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           TAG="v1.0.${GITHUB_RUN_NUMBER}"
-          gh release create "$TAG" A330-HamHang-3D.apk \
-            --title "A330 Hầm hàng 3D – $TAG" \
-            --notes "Bản APK (debug, tự ký) build từ commit ${GITHUB_SHA::7}. Cài trên Android 7.0+; bật cho phép cài ứng dụng từ nguồn không xác định. Đăng nhập: Test/123 – Admin/VIAA." \
+          gh release create "$TAG" A330-HamHang-3D.apk A330-LowDeck-Loading-procedure-Demo-V1.0-Final.apk \
+            --title "A330 LowDeck Loading procedure Demo V1.0 Final – $TAG" \
+            --notes "Bản APK (debug, tự ký) build từ commit ${GITHUB_SHA::7}. Cài trên Android 7.0+; bật cho phép cài ứng dụng từ nguồn không xác định. Đăng nhập: Test/123 – Admin/VIAA. Có âm thanh khóa thật, quy trình 2 hầm chống tipping, góc nhìn 2.5D." \
             --target "$GITHUB_SHA"

@@ -28,3 +28,7 @@ CẬP NHẬT NỘI DUNG BÀI GIẢNG
 PHÁT HÀNH CHÍNH THỨC (tuỳ chọn)
 - APK debug tự ký, phù hợp cài nội bộ cho lớp học. Để phát hành rộng hoặc đưa lên Google Play, tạo keystore
   (Build → Generate Signed Bundle / APK…) và build bản release (.aab cho Google Play).
+
+PHIÊN BẢN: A330 LowDeck Loading procedure Demo V1.0 Final (versionCode 2)
+- Cài đè lên bản cũ được (cùng chữ ký debug của GitHub Actions không đảm bảo giống nhau giữa các lần build:
+  nếu máy báo "xung đột gói", gỡ bản cũ rồi cài lại).
