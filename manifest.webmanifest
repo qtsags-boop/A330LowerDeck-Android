@@ -1,0 +1,17 @@
+{
+  "name": "VJAA Hầm hàng 3D – A330 · A320/A321 V1.3",
+  "short_name": "Hầm hàng 3D",
+  "description": "Bài giảng tương tác 3D: cấu tạo hầm hàng A330-343 lower deck, khóa XZ, chất xếp ULD.",
+  "lang": "vi",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#dfe7ee",
+  "theme_color": "#14222e",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
