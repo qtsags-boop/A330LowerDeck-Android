@@ -1,6 +1,6 @@
 {
-  "name": "A330 LowDeck Loading procedure Demo V1.0 Final",
-  "short_name": "A330 Hầm hàng",
+  "name": "VJAA Hầm hàng 3D – A330 · A320/A321 V1.1",
+  "short_name": "Hầm hàng 3D",
   "description": "Bài giảng tương tác 3D: cấu tạo hầm hàng A330-343 lower deck, khóa XZ, chất xếp ULD.",
   "lang": "vi",
   "start_url": "./index.html",
