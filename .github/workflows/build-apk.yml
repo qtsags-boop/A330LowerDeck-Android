@@ -26,16 +26,16 @@ jobs:
       - name: Rename APK
         run: |
           cp app/build/outputs/apk/debug/app-debug.apk A330-HamHang-3D.apk
-          cp A330-HamHang-3D.apk VJAA-HamHang-3D-A330-A320-A321-V1.1.apk
+          cp A330-HamHang-3D.apk VJAA-HamHang-3D-A330-A320-A321-V1.2.apk
       - uses: actions/upload-artifact@v4
         with:
           name: A330-HamHang-3D-apk
           path: |
             A330-HamHang-3D.apk
-            VJAA-HamHang-3D-A330-A320-A321-V1.1.apk
+            VJAA-HamHang-3D-A330-A320-A321-V1.2.apk
       - name: Publish APK to the 'apk' branch
         run: |
-          mkdir -p /tmp/out && cp A330-HamHang-3D.apk VJAA-HamHang-3D-A330-A320-A321-V1.1.apk /tmp/out/
+          mkdir -p /tmp/out && cp A330-HamHang-3D.apk VJAA-HamHang-3D-A330-A320-A321-V1.2.apk /tmp/out/
           cd /tmp/out
           git init -q -b apk
           git config user.name "github-actions[bot]"
@@ -47,8 +47,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          TAG="v1.1.${GITHUB_RUN_NUMBER}"
-          gh release create "$TAG" A330-HamHang-3D.apk VJAA-HamHang-3D-A330-A320-A321-V1.1.apk \
-            --title "VJAA Hầm hàng 3D – A330 · A320/A321 V1.1 – $TAG" \
-            --notes "Bản APK (debug, tự ký) build từ commit ${GITHUB_SHA::7}. Cài trên Android 7.0+; bật cho phép cài ứng dụng từ nguồn không xác định. Đăng nhập: Test/123 – Admin/VIAA. Chọn tàu khi đăng nhập: A330-343 (ULD) hoặc A320/A321 chất rời (A321 có tùy chọn 1 ACT / 2 ACT). Khoang 4 chỉ chất hành lý 60–100 kiện. Có âm thanh, quy trình 2 hầm chống tipping, góc nhìn 2.5D." \
+          TAG="v1.2.${GITHUB_RUN_NUMBER}"
+          gh release create "$TAG" A330-HamHang-3D.apk VJAA-HamHang-3D-A330-A320-A321-V1.2.apk \
+            --title "VJAA Hầm hàng 3D – A330 · A320/A321 V1.2 – $TAG" \
+            --notes "Bản APK (debug, tự ký) build từ commit ${GITHUB_SHA::7}. Cài trên Android 7.0+; bật cho phép cài ứng dụng từ nguồn không xác định. Đăng nhập: Test/123 – Admin/VIAA. Chọn tàu khi đăng nhập: A330-343 (ULD) hoặc A320/A321 chất rời (A321 có tùy chọn 1 ACT / 2 ACT). Khoang 4 chỉ chất hành lý 60–100 kiện. Số liệu khoang, vị trí và giới hạn tải theo AHM 560 Vietjet. Có âm thanh, quy trình 2 hầm chống tipping, góc nhìn 2.5D." \
             --target "$GITHUB_SHA"
